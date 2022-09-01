@@ -18,11 +18,6 @@ namespace WeekMCCapp.Models
 
 		}
 
-		public Task<User> GetUserFromDatabase()
-		{
-			return _database.Table<User>().FirstAsync();
-		}
-
 		public Task<int> SaveUserToDatabase(User user)
 		{
 			return _database.InsertAsync(user);

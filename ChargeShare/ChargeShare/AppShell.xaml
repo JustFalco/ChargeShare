@@ -15,14 +15,14 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-				<Setter Property="Shell.ForegroundColor" Value="{StaticResource Primary}" />
-				<Setter Property="Shell.TitleColor" Value="{StaticResource Primary}" />
-				<Setter Property="Shell.DisabledColor" Value="{StaticResource Primary}" />
+				<Setter Property="Shell.ForegroundColor" Value="White" />
+				<Setter Property="Shell.TitleColor" Value="White" />
+				<Setter Property="Shell.DisabledColor" Value="DarkGray" />
 				<Setter Property="Shell.UnselectedColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-				<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Primary}"/>
-				<Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Primary}"/>
-				<Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Primary}"/>
+				<Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+				<Setter Property="Shell.TabBarUnselectedColor" Value="Transparent"/>
+				<Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -40,7 +40,7 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-									<Setter Property="BackgroundColor" Value="{x:OnPlatform UWP={StaticResource Primary}, iOS={StaticResource Primary}, Android={StaticResource Primary}}" />
+									<Setter Property="BackgroundColor" Value="{x:OnPlatform UWP={StaticResource Primary}, iOS={StaticResource Primary}}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>

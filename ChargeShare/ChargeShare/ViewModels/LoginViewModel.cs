@@ -1,4 +1,5 @@
-﻿using ChargeShare.Views;
+﻿using ChargeShare.Models;
+using ChargeShare.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,8 @@ namespace ChargeShare.ViewModels
 	public class LoginViewModel : BaseViewModel
 	{
 		public Command LoginCommand { get; }
+		public string Email { get; set; }
+		public string Password { get; set; }
 
 		public LoginViewModel()
 		{
@@ -17,8 +20,14 @@ namespace ChargeShare.ViewModels
 
 		private async void OnLoginClicked(object obj)
 		{
-			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-			/*await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");*/
+			if(string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
+			{
+				return;
+			}
+			if(Email == "falco@wolkorte.nl" && Password == "falco")
+			{
+				await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+			}
 		}
 	}
 }

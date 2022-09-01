@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:ChargeShare.ViewModels"
              x:Class="ChargeShare.Views.HomePage">
+	<ContentPage.BindingContext>
+		<local:HomeViewModel/>
+	</ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="Welkom!"
+				   FontSize="Title"
+				   TextColor="Black" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+			<Button 
+				Text="Laadpaal aanmelden"
+				x:Name="RegisterPoleButton"
+				BackgroundColor="{StaticResource Primary}"
+				TextColor="White"
+				/>
+			<Button 
+				Text="Mijn reserveringen"
+				x:Name="MyReservationsButton"
+				BackgroundColor="{StaticResource Primary}"
+				TextColor="White"
+				/>
+		</StackLayout>
     </ContentPage.Content>
 </ContentPage>

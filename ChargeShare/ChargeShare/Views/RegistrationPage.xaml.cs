@@ -31,6 +31,7 @@ namespace ChargeShare.Views
 			else
 			{
 				PasswordWarning.IsVisible = false;
+				RegisterButton.IsVisible = true;
 			}
 		}
 

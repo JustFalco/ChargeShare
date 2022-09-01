@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:ChargeShare.ViewModels"
              mc:Ignorable="d"
              x:Class="ChargeShare.Views.LoginPage"
              Shell.NavBarIsVisible="False"
 			 BackgroundColor="{StaticResource Primary}">
+	<ContentPage.BindingContext>
+		<local:LoginViewModel/>
+	</ContentPage.BindingContext>
 	<ContentPage.Content >
 		<StackLayout Padding="10,0,10,0" VerticalOptions="Center" BackgroundColor="{StaticResource Primary}">
 
@@ -28,6 +32,7 @@
 			<Entry 
 				BackgroundColor="White"
 				Placeholder="Email"
+				Text="{Binding Email}"
 				PlaceholderColor="{StaticResource SecundairyText}"
 				HorizontalOptions="FillAndExpand"
 				HorizontalTextAlignment="Center"
@@ -37,6 +42,7 @@
 			<Entry 
 				BackgroundColor="White"
 				Placeholder="Wachtwoord"
+				Text="{Binding Password}"
 				PlaceholderColor="{StaticResource SecundairyText}"
 				HorizontalOptions="FillAndExpand"
 				HorizontalTextAlignment="Center"

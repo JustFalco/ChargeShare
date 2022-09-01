@@ -1,22 +1,47 @@
-﻿using System;
+﻿using ChargeShare.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ChargeShare.ViewModels
 {
-	public class RegistrationViewModel
+	public class RegistrationViewModel : BaseViewModel
 	{
-		public Command goBackToHomeCommand { get; }
+		public User registeringUser { get; set; }
+		public string PasswordRepeat { get; set; }
+
 
 		public RegistrationViewModel()
 		{
-			this.goBackToHomeCommand = new Command(GoBackToHome);
+			registeringUser = new User();
 		}
 
-		public async void GoBackToHome()
+		public ICommand RegisterUserCommand => new Command(RegisterUser);
+
+		public async void RegisterUser()
 		{
-			await Shell.Current.GoToAsync("//LoginPage");
+			if (registeringUser == null)
+			{
+				return;
+			}
+			//Check of alles is ingevuld
+			//Check of wachtwoorden gelijk zijn -> vervolgens encrypten
+			//Check of email al bestaat
+			//Check adress met api call
+			//Check leeftijd
+			//Store registeringUser in database
+			try 
+			{
+				await Database.SaveUserToDatabase(registeringUser);
+			}catch(Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+			
+			//Redirect naar homepage
+			await Shell.Current.GoToAsync("//HomePage");
 		}
 
 	}

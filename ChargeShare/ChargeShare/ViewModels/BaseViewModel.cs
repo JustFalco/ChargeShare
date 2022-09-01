@@ -1,4 +1,6 @@
 ﻿
+using ChargeShare.Models;
+using ChargeShare.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +14,28 @@ namespace ChargeShare.ViewModels
 	public class BaseViewModel : INotifyPropertyChanged
 	{
 		private static Database database;
+		private static User loggedinUser;
+
+		public static User LoggedinUser
+		{
+			get
+			{
+				if (loggedinUser == null)
+				{
+					Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+					return null;
+				}
+				else
+				{
+					return loggedinUser;
+				}
+				
+			}
+			set
+			{
+				loggedinUser = value;
+			}
+		}
 
 		public static Database Database
 		{

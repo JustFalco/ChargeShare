@@ -44,6 +44,7 @@
 					   Margin="10,0,10,0"
 					   BackgroundColor="LightGray"
 					   FontSize="12"
+					   Text="{Binding registeringUser.FirstName}"
 					   />
 				<Label 
 					x:Name="MiddleNameLabel"
@@ -59,6 +60,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.MiddleName}"
 					   />
 				<Label 
 					x:Name="LastNameLabel"
@@ -74,6 +76,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.LastName}"
 					   />
 				<Label 
 					x:Name="EmailLabel"
@@ -90,6 +93,7 @@
 					   Margin="10,0,10,0"
 					   FontSize="12"
 					   Keyboard="Email"
+					   Text="{Binding registeringUser.Email}"
 					   />
 				<Label 
 					x:Name="PhoneLabel"
@@ -106,6 +110,7 @@
 					   Margin="10,0,10,0"
 					   FontSize="12"
 					   Keyboard="Telephone"
+					   Text="{Binding registeringUser.PhoneNumber}"
 					   />
 				<Label 
 					x:Name="DOBLabel"
@@ -121,6 +126,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+							Date="{Binding registeringUser.DateOfBirth}"
 					   />
 				<Button
 					Text="Volgende"
@@ -168,6 +174,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.street}"
 					   />
 				<Label 
 					Text="Stad*" 
@@ -183,6 +190,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.city}"
 					   />
 				<Label 
 					Text="Postcode*" 
@@ -198,6 +206,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.Postal}"
 					   />
 				<Label 
 					Text="Huisnummer*" 
@@ -214,6 +223,7 @@
 					   Margin="10,0,10,0"
 					   FontSize="12"
 					   Keyboard="Numeric"
+					   Text="{Binding registeringUser.HouseNumber}"
 					   />
 				<Label 
 					Text="Toevoeging*" 
@@ -229,6 +239,7 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="12"
+					   Text="{Binding registeringUser.HouseAddition}"
 					   />
 				<Button
 					Text="Volgende"
@@ -275,7 +286,8 @@
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="Default"
-					   IsPassword="True"					   
+					   IsPassword="True"
+					   Text="{Binding registeringUser.Password}"
 					   />
 				<Label 
 					Text="Herhaal wachtwoord:" 
@@ -293,6 +305,7 @@
 					   FontSize="Default"
 					   IsPassword="True"
 					   TextChanged="CheckPasswords"
+					   Text="{Binding PasswordRepeat}"
 					   />
 				<Label Text="Wachtwoorden komen niet overeen" 
 					   x:Name="PasswordWarning"
@@ -306,6 +319,8 @@
 				
 				<Button
 					Text="Aanmelden"
+					x:Name="RegisterButton"
+					IsVisible="false"
 					Grid.ColumnSpan="2"
 					Grid.Row="5"
 					BackgroundColor="LightGreen"
@@ -314,6 +329,7 @@
 					Margin="20,20,20,0"
 					TextColor="White"
 					CornerRadius="7"
+					Command="{Binding RegisterUserCommand}"
 					/>
 				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="6" Grid.ColumnSpan="2" Padding="15">
 					<Label.GestureRecognizers>
