@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChargeShare.Views.RegistrationPage"
+			 Shell.NavBarIsVisible="False"
+			 Title="Aanmelden">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label 
+				Text="Aanmelden"
+				FontSize="Title"
+				TextColor="{StaticResource TitleText}"
+				Margin="20"
+                HorizontalOptions="CenterAndExpand" />
+
+			<Grid IsVisible="True" x:Name="PersonalBoxes">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="65"/>
+				</Grid.RowDefinitions>
+
+				<Label 
+					Text="Voornaam:"
+					Margin="10,0,10,0"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Margin="10,0,10,0"
+					   BackgroundColor="LightGray"
+					   FontSize="Default"
+					   />
+				<Label 
+					Grid.Row="1"
+					Margin="10,0,10,0"
+					Text="Tussenvoegsel:" 
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="1"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Label 
+					Text="Achternaam:" 
+					Margin="10,0,10,0"
+					Grid.Row="2"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="2"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Label 
+					Text="Email:" 
+					Margin="10,0,10,0"
+					Grid.Row="3"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="3"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   Keyboard="Email"
+					   />
+				<Label 
+					Text="Telefoon:" 
+					Margin="10,0,10,0"
+					Grid.Row="4"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="4"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   Keyboard="Telephone"
+					   />
+				<Label 
+					Text="Geboortedatum:" 
+					Margin="10,0,10,0"
+					Grid.Row="5"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<DatePicker Grid.Column="1"
+					   Grid.Row="5"
+					   BackgroundColor="LightGray"
+							Margin="10,0,10,0"
+					   FontSize="13"
+					   />
+				<Button
+					Text="Volgende"
+					Grid.ColumnSpan="2"
+					Grid.Row="6"
+					BackgroundColor="LightGreen"
+					BorderColor="LightGreen"
+					BorderWidth="3"
+					Margin="20,20,20,0"
+					TextColor="White"
+					CornerRadius="7"
+					Clicked="DisplayAdressBoxes"
+					/>
+			</Grid>
+
+
+			<Grid IsVisible="False" x:Name="AdresBoxes">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="65"/>
+				</Grid.RowDefinitions>
+				<Label 
+					Text="Straat:" 
+					Margin="10,0,10,0"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Label 
+					Text="Stad:" 
+					Margin="10,0,10,0"
+					Grid.Row="1"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="1"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Label 
+					Text="Postcode:" 
+					Margin="10,0,10,0"
+					Grid.Row="2"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="2"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Label 
+					Text="Huisnummer:" 
+					Margin="10,0,10,0"
+					Grid.Row="3"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="3"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   Keyboard="Numeric"
+					   />
+				<Label 
+					Text="Toevoeging:" 
+					Margin="10,0,10,0"
+					Grid.Row="4"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="4"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   />
+				<Button
+					Text="Volgende"
+					Grid.ColumnSpan="2"
+					Grid.Row="5"
+					BackgroundColor="LightGreen"
+					BorderColor="LightGreen"
+					BorderWidth="3"
+					Margin="20,20,20,0"
+					TextColor="White"
+					CornerRadius="7"
+					Clicked="DisplayPasswordBoxes"
+					/>
+
+			</Grid>
+			<Grid IsVisible="False" x:Name="PasswordBoxes">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="35"/>
+					<RowDefinition Height="65"/>
+
+				</Grid.RowDefinitions>
+				<Label 
+					Text="Wachtwoord:" 
+					Grid.Row="2"
+					Margin="10,0,10,0"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="2"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   IsPassword="True"					   
+					   />
+				<Label 
+					Text="Herhaal wachtwoord:" 
+					Margin="10,0,10,0"
+					Grid.Row="3"
+					TextColor="Black"
+					VerticalTextAlignment="Center"
+					/>
+				<Entry Grid.Column="1"
+					   Grid.Row="3"
+					   BackgroundColor="LightGray"
+					   Margin="10,0,10,0"
+					   FontSize="Default"
+					   IsPassword="True"
+					   />
+				<Button
+					Text="Aanmelden"
+					Grid.ColumnSpan="2"
+					Grid.Row="5"
+					BackgroundColor="LightGreen"
+					BorderColor="LightGreen"
+					BorderWidth="3"
+					Margin="20,20,20,0"
+					TextColor="White"
+					CornerRadius="7"
+					/>
+			</Grid>
+
+			
+			
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

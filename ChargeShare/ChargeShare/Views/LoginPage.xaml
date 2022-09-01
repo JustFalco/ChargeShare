@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ChargeShare.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+			 BackgroundColor="{StaticResource Primary}">
+	<ContentPage.Content >
+		<StackLayout Padding="10,0,10,0" VerticalOptions="Center" BackgroundColor="{StaticResource Primary}">
+
+			<Image
+				Source="https://cdn3.iconfinder.com/data/icons/wsd-power/512/power-09-512.png"
+				WidthRequest="200"
+				HeightRequest="200"
+				Rotation="40"
+				Margin="20 ,20, 20, 0"
+				/>
+			<Label 
+				Text="Charge Share"
+				TextColor="{StaticResource TitleText}"
+				FontSize="36"
+				FontAttributes="Bold"
+				HorizontalTextAlignment="Center"
+				Margin="0,-10,0,40"
+				   />
+			<Entry 
+				BackgroundColor="White"
+				Placeholder="Email"
+				PlaceholderColor="{StaticResource SecundairyText}"
+				HorizontalOptions="FillAndExpand"
+				HorizontalTextAlignment="Center"
+				TextColor="{StaticResource PrimaryText}"
+				Margin="20,0,20,0"
+				/>
+			<Entry 
+				BackgroundColor="White"
+				Placeholder="Wachtwoord"
+				PlaceholderColor="{StaticResource SecundairyText}"
+				HorizontalOptions="FillAndExpand"
+				HorizontalTextAlignment="Center"
+				IsPassword="True"
+				TextColor="{StaticResource PrimaryText}"
+				Margin="20,5,20,0"
+				
+				/>
+			<Button 
+				Margin="20,15,20,0"
+				VerticalOptions="Center" 
+				Text="Login" 
+				Command="{Binding LoginCommand}"
+				BackgroundColor="Transparent"
+				BorderColor="LightGreen"
+				BorderWidth="2"
+				TextColor="White"
+				CornerRadius="7"
+				/>
+			<Label HorizontalOptions="Center" Margin="0,15,0,0">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Nog geen account? " TextColor="White"/>
+						<Span Text="Aanmelden" TextColor="LightGreen" TextDecorations="Underline"/>
+					</FormattedString>
+				</Label.FormattedText>
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Tapped="CreateAccount_Tabbed"/>
+				</Label.GestureRecognizers>
+			</Label>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
