@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:ChargeShare.ViewModels"
              x:Class="ChargeShare.Views.RegistrationPage"
 			 Shell.NavBarIsVisible="False"
 			 Title="Aanmelden">
+	<ContentPage.BindingContext>
+		<local:RegistrationViewModel />
+	</ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <Label 
@@ -29,82 +33,94 @@
 				</Grid.RowDefinitions>
 
 				<Label 
-					Text="Voornaam:"
+					x:Name="FirstNameLabel"
+					Text="Voornaam*"
 					Margin="10,0,10,0"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="FirstNameEntry"
 					   Margin="10,0,10,0"
 					   BackgroundColor="LightGray"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
+					x:Name="MiddleNameLabel"
 					Grid.Row="1"
 					Margin="10,0,10,0"
-					Text="Tussenvoegsel:" 
+					Text="Tussenvoegsel" 
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="MiddleNameEntry"
 					   Grid.Row="1"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
-					Text="Achternaam:" 
+					x:Name="LastNameLabel"
+					Text="Achternaam*" 
 					Margin="10,0,10,0"
 					Grid.Row="2"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="LastNameEntry"
 					   Grid.Row="2"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
-					Text="Email:" 
+					x:Name="EmailLabel"
+					Text="Email*" 
 					Margin="10,0,10,0"
 					Grid.Row="3"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="EmailEntry"
 					   Grid.Row="3"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   Keyboard="Email"
 					   />
 				<Label 
-					Text="Telefoon:" 
+					x:Name="PhoneLabel"
+					Text="Telefoon*" 
 					Margin="10,0,10,0"
 					Grid.Row="4"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="PhoneEntry"
 					   Grid.Row="4"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   Keyboard="Telephone"
 					   />
 				<Label 
-					Text="Geboortedatum:" 
+					x:Name="DOBLabel"
+					Text="Geboortedatum*" 
 					Margin="10,0,10,0"
 					Grid.Row="5"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<DatePicker Grid.Column="1"
+							x:Name="DOBEntry"
 					   Grid.Row="5"
 					   BackgroundColor="LightGray"
-							Margin="10,0,10,0"
-					   FontSize="13"
+					   Margin="10,0,10,0"
+					   FontSize="12"
 					   />
 				<Button
 					Text="Volgende"
@@ -116,7 +132,7 @@
 					Margin="20,20,20,0"
 					TextColor="White"
 					CornerRadius="7"
-					Clicked="DisplayAdressBoxes"
+					Clicked="CheckPersonalEntryBoxes"
 					/>
 
 				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="7" Grid.ColumnSpan="2" Padding="15"> 
@@ -141,68 +157,78 @@
 					<RowDefinition Height="65"/>
 				</Grid.RowDefinitions>
 				<Label 
-					Text="Straat:" 
+					Text="Straat*" 
+					x:Name="StreetLabel"
 					Margin="10,0,10,0"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="StreetEntry"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
-					Text="Stad:" 
+					Text="Stad*" 
+					x:Name="CityLabel"
 					Margin="10,0,10,0"
 					Grid.Row="1"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="CityEntry"
 					   Grid.Row="1"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
-					Text="Postcode:" 
+					Text="Postcode*" 
+					x:Name="PostalLabel"
 					Margin="10,0,10,0"
 					Grid.Row="2"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="PostalEntry"
 					   Grid.Row="2"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Label 
-					Text="Huisnummer:" 
+					Text="Huisnummer*" 
+					x:Name="HouseNumberLabel"
 					Margin="10,0,10,0"
 					Grid.Row="3"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="HouseNumberEntry"
 					   Grid.Row="3"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   Keyboard="Numeric"
 					   />
 				<Label 
-					Text="Toevoeging:" 
+					Text="Toevoeging*" 
+					x:Name="HouseAdditionLabel"
 					Margin="10,0,10,0"
 					Grid.Row="4"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="HouseAdditionEntry"
 					   Grid.Row="4"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
-					   FontSize="Default"
+					   FontSize="12"
 					   />
 				<Button
 					Text="Volgende"
@@ -214,7 +240,7 @@
 					Margin="20,20,20,0"
 					TextColor="White"
 					CornerRadius="7"
-					Clicked="DisplayPasswordBoxes"
+					Clicked="CheckAdressBoxes"
 					/>
 				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="6" Grid.ColumnSpan="2" Padding="15">
 					<Label.GestureRecognizers>
@@ -237,12 +263,14 @@
 				</Grid.RowDefinitions>
 				<Label 
 					Text="Wachtwoord:" 
+					x:Name="PasswordLabel"
 					Grid.Row="2"
 					Margin="10,0,10,0"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="PasswordEntry"
 					   Grid.Row="2"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
@@ -251,18 +279,31 @@
 					   />
 				<Label 
 					Text="Herhaal wachtwoord:" 
+					x:Name="PasswordRepeatLabel"
 					Margin="10,0,10,0"
 					Grid.Row="3"
 					TextColor="Black"
 					VerticalTextAlignment="Center"
 					/>
 				<Entry Grid.Column="1"
+					   x:Name="PasswordRepeatEntry"
 					   Grid.Row="3"
 					   BackgroundColor="LightGray"
 					   Margin="10,0,10,0"
 					   FontSize="Default"
 					   IsPassword="True"
+					   TextChanged="CheckPasswords"
 					   />
+				<Label Text="Wachtwoorden komen niet overeen" 
+					   x:Name="PasswordWarning"
+					   IsVisible="false" 
+					   TextColor="Red" 
+					   Grid.Row="4" 
+					   Grid.ColumnSpan="2"
+					   HorizontalTextAlignment="Center"
+					   Margin="0,15,0,0"
+					   />
+				
 				<Button
 					Text="Aanmelden"
 					Grid.ColumnSpan="2"
