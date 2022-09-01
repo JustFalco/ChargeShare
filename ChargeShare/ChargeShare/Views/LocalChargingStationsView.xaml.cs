@@ -11,12 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace ChargeShare.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterPolePage : ContentPage
+	public partial class LocalChargingStationsView : ContentPage
 	{
-		public RegisterPolePage()
+		public LocalChargingStationsView()
 		{
 			InitializeComponent();
-			this.BindingContext = new RegisterPoleViewModel();
+			this.BindingContext = new LocalChargingViewModel();
+		}
+
+		protected async override void OnAppearing()
+		{
+			base.OnAppearing();
+			await (BindingContext as LocalChargingViewModel).getChargingStationsAsync();
 		}
 	}
 }

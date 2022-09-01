@@ -15,7 +15,8 @@ namespace WeekMCCapp.Models
 		public Database(string dbPath)
 		{
 			_database = new SQLiteAsyncConnection(dbPath);
-
+			_database.CreateTableAsync<User>();
+			_database.CreateTableAsync<ChargeStation>();
 		}
 
 		public Task<int> SaveUserToDatabase(User user)
@@ -23,13 +24,19 @@ namespace WeekMCCapp.Models
 			return _database.InsertAsync(user);
 		}
 
+		public Task<int> SaveChargeStationToDatabase(ChargeStation chargeStation)
+		{
+			return _database.InsertAsync(chargeStation);
+		}
+
+		public Task<List<ChargeStation>> GetAllChargeStations()
+		{
+			return _database.Table<ChargeStation>().ToListAsync();
+		}
+
 		public async Task<User> GetUserByEmail(string EmailString)
 		{
-			var query = from s in _database.Table<User>()
-						where s.Email == EmailString
-						select s;
-
-			return query.FirstOrDefaultAsync().Result;
+			return _database.QueryAsync<User>("SELECT * FROM User WHERE Email = ?", EmailString).Result[0];
 		}
 
 	}

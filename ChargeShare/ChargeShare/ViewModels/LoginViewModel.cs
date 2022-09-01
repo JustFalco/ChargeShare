@@ -24,7 +24,12 @@ namespace ChargeShare.ViewModels
 			{
 				return;
 			}
-			if(Email == "falco@wolkorte.nl" && Password == "falco")
+
+/*			User loggedinUser = await Database.GetUserByEmail(Email);
+
+			Console.WriteLine(LoggedinUser.Email);*/
+
+			if (Email == "falco@wolkorte.nl" && Password == "falco")
 			{
 				await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 			}

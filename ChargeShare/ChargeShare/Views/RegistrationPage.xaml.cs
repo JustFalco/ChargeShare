@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChargeShare.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -16,6 +17,7 @@ namespace ChargeShare.Views
 		public RegistrationPage()
 		{
 			InitializeComponent();
+			this.BindingContext = new RegistrationViewModel();
 			PersonalBoxes.IsVisible = true;
 			PasswordBoxes.IsVisible = false;
 			AdresBoxes.IsVisible = false;

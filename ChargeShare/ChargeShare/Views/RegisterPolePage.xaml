@@ -1,12 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:ChargeShare.ViewModels"
              x:Class="ChargeShare.Views.RegisterPolePage">
+
+	<ContentPage.BindingContext>
+		<local:RegisterPoleViewModel/>
+	</ContentPage.BindingContext>
+	
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+			<Label Text="Laadpaal aanmelden" 
+				   x:Name="ChargeStationSubmitTitle"
+				   TextColor="Black"
+				   FontSize="Title"
+				   HorizontalTextAlignment="Center"
+				   Margin="40"
+				   />
+			<Entry 
+				Placeholder="Prijs per uur"
+				BackgroundColor="LightGray"
+				Margin="50,0,50,0"
+				HorizontalTextAlignment="Center"
+				Keyboard="Numeric"
+				PlaceholderColor="DarkGray"
+				TextColor="Gray"
+				Text="{Binding ChargeStation.PricePerHour}"
+				/>
+
+			<Entry 
+				Placeholder="Beschrijving"
+				BackgroundColor="LightGray"
+				Margin="50,10,50,0"
+				HorizontalTextAlignment="Center"
+				Keyboard="Default"
+				PlaceholderColor="DarkGray"
+				TextColor="Gray"
+				HeightRequest="90"
+				Text="{Binding ChargeStation.Description}"
+				/>
+
+			<ImageButton HeightRequest="100" WidthRequest="100" VerticalOptions="EndAndExpand" HorizontalOptions="Center" CornerRadius="100" />
+
+			<Button VerticalOptions="EndAndExpand" Margin="30" Text="Laadpaal aanmelden" CornerRadius="7" BackgroundColor="LightGreen" Command="{Binding SubmitChargeStation}"/>
+		</StackLayout>
     </ContentPage.Content>
 </ContentPage>

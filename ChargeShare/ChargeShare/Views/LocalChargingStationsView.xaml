@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:ChargeShare.ViewModels"
+			 xmlns:model="clr-namespace:ChargeShare.Models"
+             x:Class="ChargeShare.Views.LocalChargingStationsView">
+
+	<ContentPage.BindingContext>
+		<local:LocalChargingViewModel/>
+	</ContentPage.BindingContext>
+	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="Oplaadpunten in de buurt" TextColor="Black" FontSize="Title"/>
+			<CollectionView ItemsSource="{Binding LocalChargeStations}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="model:ChargeStation">
+						<StackLayout>
+							<Label Text="{Binding PricePerHour, StringFormat='Prijs per uur: €{0}'}" TextColor="Black" FontSize="Title"/>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
