@@ -17,6 +17,10 @@ namespace ChargeShare.Views
 		{
 			InitializeComponent();
 			this.BindingContext = new HomeViewModel();
+
+
 		}
+
+
 	}
 }
