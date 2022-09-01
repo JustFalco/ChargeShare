@@ -118,6 +118,12 @@
 					CornerRadius="7"
 					Clicked="DisplayAdressBoxes"
 					/>
+
+				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="7" Grid.ColumnSpan="2" Padding="15"> 
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="BackToHome"/>
+					</Label.GestureRecognizers>
+				</Label>
 			</Grid>
 
 
@@ -210,7 +216,11 @@
 					CornerRadius="7"
 					Clicked="DisplayPasswordBoxes"
 					/>
-
+				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="6" Grid.ColumnSpan="2" Padding="15">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="DisplayPersonalBoxes"/>
+					</Label.GestureRecognizers>
+				</Label>
 			</Grid>
 			<Grid IsVisible="False" x:Name="PasswordBoxes">
 				<Grid.ColumnDefinitions>
@@ -264,6 +274,11 @@
 					TextColor="White"
 					CornerRadius="7"
 					/>
+				<Label Text="Back" TextColor="LightGreen" HorizontalOptions="Center" Grid.Row="6" Grid.ColumnSpan="2" Padding="15">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="DisplayAdressBoxes"/>
+					</Label.GestureRecognizers>
+				</Label>
 			</Grid>
 
 			

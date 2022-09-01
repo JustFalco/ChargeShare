@@ -33,6 +33,18 @@ namespace ChargeShare.Views
 			PasswordBoxes.IsVisible = true;
 			AdresBoxes.IsVisible = false;
 		}
+
+		private void DisplayPersonalBoxes(object sender, EventArgs args)
+		{
+			PersonalBoxes.IsVisible = true;
+			PasswordBoxes.IsVisible = false;
+			AdresBoxes.IsVisible = false;
+		}
+
+		private async void BackToHome(object sender, EventArgs args)
+		{
+			await Shell.Current.GoToAsync("//LoginPage");
+		}
 	}
 
 }

@@ -34,7 +34,7 @@ namespace WeekMCCapp.Models
 						where s.Email == EmailString
 						select s;
 
-			return query.;
+			return query.FirstOrDefaultAsync().Result;
 		}
 
 	}
