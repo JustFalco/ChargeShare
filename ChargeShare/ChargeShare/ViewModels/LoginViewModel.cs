@@ -26,12 +26,19 @@ namespace ChargeShare.ViewModels
 		{
 			if(string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
 			{
+				await App.Current.MainPage.DisplayAlert("Lege velden", "Voer eerst alle velden in voordat u inlogd", "Oke");
 				return;
 			}
 
 			Console.WriteLine("Going to log in user");
 			LoggedinUser = new User();
-			LoggedinUser = await userService.UserLogin(Email);
+			User loginUser = await userService.UserLogin(Email);
+			if(loginUser == null)
+			{
+				await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+				return;
+			}
+			LoggedinUser = loginUser;
 			Console.WriteLine("LoggedinUserSet");
 			Console.WriteLine("Email: " + LoggedinUser.Email);
 
@@ -42,8 +49,9 @@ namespace ChargeShare.ViewModels
 			}
 			else
 			{
-				await App.Current.MainPage.DisplayAlert("Whoop er ging iets fout", "helemaal kut", "ok");
+				await App.Current.MainPage.DisplayAlert("Onjuist wachtwoord", "Het wachtwoord dat u heeft ingevoerd is onjuist", "Oke");
 			}
 		}
 	}
 }
+ 

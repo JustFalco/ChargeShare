@@ -14,6 +14,12 @@ namespace ChargeShare.Services
 		{
 			Console.WriteLine("In userlogin service");
 			User = await App.Database.GetUserByEmail(Email);
+			if(User == null)
+			{
+				await App.Current.MainPage.DisplayAlert("Gebruiker niet gevonden", "Gebruiker met email " + Email + " bestaat niet", "Oke");
+				return null;
+			}
+
 			return User;
 		}
 	}
