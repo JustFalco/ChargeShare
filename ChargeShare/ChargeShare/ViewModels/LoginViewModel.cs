@@ -1,4 +1,5 @@
 ﻿using ChargeShare.Models;
+using ChargeShare.Services;
 using ChargeShare.Views;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,12 @@ namespace ChargeShare.ViewModels
 		public string Email { get; set; }
 		public string Password { get; set; }
 
+		UserService userService;
+
 		public LoginViewModel()
 		{
 			LoginCommand = new Command(OnLoginClicked);
+			this.userService = new UserService();
 		}
 
 		private async void OnLoginClicked(object obj)
@@ -25,13 +29,20 @@ namespace ChargeShare.ViewModels
 				return;
 			}
 
-/*			User loggedinUser = await Database.GetUserByEmail(Email);
+			Console.WriteLine("Going to log in user");
+			LoggedinUser = new User();
+			LoggedinUser = await userService.UserLogin(Email);
+			Console.WriteLine("LoggedinUserSet");
+			Console.WriteLine("Email: " + LoggedinUser.Email);
 
-			Console.WriteLine(LoggedinUser.Email);*/
-
-			if (Email == "falco@wolkorte.nl" && Password == "falco")
+			//TODO encrypt wachtwoord
+			if (Password == LoggedinUser.Password)
 			{
 				await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+			}
+			else
+			{
+				await App.Current.MainPage.DisplayAlert("Whoop er ging iets fout", "helemaal kut", "ok");
 			}
 		}
 	}

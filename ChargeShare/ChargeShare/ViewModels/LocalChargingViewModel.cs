@@ -27,7 +27,7 @@ namespace ChargeShare.ViewModels
 
 			try
 			{
-				var chargers = await Database.GetAllChargeStations();
+				var chargers = await App.Database.GetAllChargeStations();
 
 				foreach (var charger in chargers)
 				{

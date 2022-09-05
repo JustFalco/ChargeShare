@@ -36,7 +36,10 @@ namespace WeekMCCapp.Models
 
 		public async Task<User> GetUserByEmail(string EmailString)
 		{
-			return _database.QueryAsync<User>("SELECT * FROM User WHERE Email = ?", EmailString).Result[0];
+			Console.WriteLine("In query ");
+			var user = await _database.Table<User>().Where(a => a.Email == EmailString).FirstOrDefaultAsync();
+			Console.WriteLine("executed query ");
+			return user;
 		}
 
 	}

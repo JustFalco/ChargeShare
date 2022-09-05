@@ -13,10 +13,10 @@ namespace ChargeShare.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
-		private static Database database;
-		private static User loggedinUser;
 
-		public static User LoggedinUser
+		private User loggedinUser;
+
+		public User LoggedinUser
 		{
 			get
 			{
@@ -33,20 +33,8 @@ namespace ChargeShare.ViewModels
 			}
 			set
 			{
-				loggedinUser = value;
-			}
-		}
-
-		public static Database Database
-		{
-			get
-			{
-				if (database == null)
-				{
-					database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "appdatabase.db3"));
-				}
-
-				return database;
+				SetProperty(ref loggedinUser, value);
+				OnPropertyChanged(nameof(LoggedinUser));
 			}
 		}
 
@@ -76,6 +64,7 @@ namespace ChargeShare.ViewModels
 			OnPropertyChanged(propertyName);
 			return true;
 		}
+
 
 		#region INotifyPropertyChanged
 		public event PropertyChangedEventHandler PropertyChanged;

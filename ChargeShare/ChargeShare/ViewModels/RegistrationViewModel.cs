@@ -34,7 +34,7 @@ namespace ChargeShare.ViewModels
 			//Store registeringUser in database
 			try 
 			{
-				await Database.SaveUserToDatabase(registeringUser);
+				await App.Database.SaveUserToDatabase(registeringUser);
 			}catch(Exception e)
 			{
 				Console.WriteLine(e.Message);

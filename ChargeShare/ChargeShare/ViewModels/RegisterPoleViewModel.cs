@@ -21,7 +21,7 @@ namespace ChargeShare.ViewModels
 		public async void RegisterChargeStation()
 		{
 			Console.WriteLine("Submitting!");
-			await Database.SaveChargeStationToDatabase(this.ChargeStation);
+			await App.Database.SaveChargeStationToDatabase(this.ChargeStation);
 			Console.WriteLine("Submitted?");
 			ChargeStation = new ChargeStation();
 		}
