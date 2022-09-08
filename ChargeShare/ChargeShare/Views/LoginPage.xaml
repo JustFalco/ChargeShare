@@ -61,7 +61,10 @@
 				BorderWidth="2"
 				TextColor="White"
 				CornerRadius="7"
+				IsEnabled="{Binding LoginVisible}"
+				x:Name="LoginButton"
 				/>
+			
 			<Label HorizontalOptions="Center" Margin="0,15,0,0" Padding="5">
 				<Label.FormattedText>
 					<FormattedString>
