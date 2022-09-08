@@ -13,31 +13,6 @@ namespace ChargeShare.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
-
-		private User loggedinUser;
-
-		public User LoggedinUser
-		{
-			get
-			{
-				if (loggedinUser == null)
-				{
-					Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-					return null;
-				}
-				else
-				{
-					return loggedinUser;
-				}
-				
-			}
-			set
-			{
-				SetProperty(ref loggedinUser, value);
-				OnPropertyChanged(nameof(LoggedinUser));
-			}
-		}
-
 		bool isBusy = false;
 		public bool IsBusy
 		{

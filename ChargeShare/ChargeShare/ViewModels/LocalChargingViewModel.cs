@@ -28,7 +28,7 @@ namespace ChargeShare.ViewModels
 			try
 			{
 				var chargers = await App.Database.GetAllChargeStations();
-
+				LocalChargeStations.Clear();
 				foreach (var charger in chargers)
 				{
 					LocalChargeStations.Add(charger);

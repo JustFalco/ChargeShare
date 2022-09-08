@@ -8,18 +8,27 @@
 	</ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-			<Label Text="Welkom!"
-				   FontSize="Title"
-				   TextColor="Black" 
-                HorizontalOptions="Center"
-				   Margin="0,20,0,0"/>
-
-			<map:Map IsShowingUser="True" 
+			<Label Text="{Binding Name, StringFormat='Welkom {0}!'}"
+				FontSize="Title"
+				TextColor="Black" 
+				HorizontalOptions="Center"
+				Margin="0,20,0,0"/>
+			
+			<Frame Padding="0" CornerRadius="500">
+				<Frame.GestureRecognizers>
+					<SwipeGestureRecognizer Swiped="onSwipe" Direction="Up"/>
+				</Frame.GestureRecognizers>
+				<map:Map IsShowingUser="True" 
 					 VerticalOptions="EndAndExpand"
 					 HeightRequest="250"
-					 Margin="0,0,0,-100"
+					HasScrollEnabled="False"
+						 HasZoomEnabled="False"
+						 IsEnabled="False"
+						 x:Name="GoogleMaps"
 					 
 					 />
+			</Frame>
+			
 
 			<StackLayout VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource Primary}">
 				<Button 
@@ -32,6 +41,8 @@
 					BorderWidth="2"
 					CornerRadius="7"
 					Command="{Binding RegisterPoleCommand}"
+					IsEnabled="{Binding ButtonEnabled}"
+				
 				/>
 				<Button 
 				Text="Mijn reserveringen"
@@ -42,6 +53,8 @@
 					BorderColor="LightGreen"
 					BorderWidth="2"
 					CornerRadius="7"
+					Command="{Binding ViewReservationsCommand}"
+					IsEnabled="{Binding ButtonEnabled}"
 				/>
 				<Button 
 				Text="Bekijk laadpalen in de buurt"
@@ -53,6 +66,7 @@
 					BorderWidth="2"
 					CornerRadius="7"
 					Command="{Binding ViewChargersCommand}"
+					IsEnabled="{Binding ButtonEnabled}"
 				/>
 			</StackLayout>
             

@@ -63,8 +63,8 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
+									<Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
                     </VisualStateGroupList>
@@ -93,8 +93,23 @@
     <FlyoutItem Title="Home" >
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
+	<FlyoutItem Title="Laadpaal aanmelden" >
+		<ShellContent Route="RegisterPolePage" ContentTemplate="{DataTemplate local:RegisterPolePage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Laadpaal zoeken" >
+		<ShellContent Route="LocalCharginStationsView" ContentTemplate="{DataTemplate local:LocalChargingStationsView}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Mijn reserveringen" >
+		<ShellContent Route="ReservationsPage" ContentTemplate="{DataTemplate local:ReservationsPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Account" >
+		<ShellContent Route="AccountPage" ContentTemplate="{DataTemplate local:AccountPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Mijn laadpalen" >
+		<ShellContent Route="MyChargersPage" ContentTemplate="{DataTemplate local:MyChargersPage}" />
+	</FlyoutItem>
 
-    <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
+	<!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
 

@@ -1,4 +1,5 @@
-﻿using ChargeShare.Views;
+﻿using ChargeShare.Models;
+using ChargeShare.Views;
 using System;
 using System.IO;
 using WeekMCCapp.Models;
@@ -9,6 +10,28 @@ namespace ChargeShare
 {
 	public partial class App : Application
 	{
+		private static User loggedinUser;
+
+		public static User LoggedinUser
+		{
+			get
+			{
+				if (loggedinUser == null)
+				{
+					Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+					return null;
+				}
+				else
+				{
+					return loggedinUser;
+				}
+
+			}
+			set
+			{
+				loggedinUser = value;
+			}
+		}
 
 		private static Database database;
 

@@ -16,6 +16,8 @@ namespace ChargeShare
 			Routing.RegisterRoute(nameof(RegisterPolePage), typeof(RegisterPolePage));
 			Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
 			Routing.RegisterRoute(nameof(LocalChargingStationsView), typeof(LocalChargingStationsView));
+			Routing.RegisterRoute(nameof(AccountPage), typeof(AccountPage));
+			Routing.RegisterRoute(nameof(ReservationsPage), typeof(ReservationsPage));
 		}
 
 		private async void OnMenuItemClicked(object sender, EventArgs e)

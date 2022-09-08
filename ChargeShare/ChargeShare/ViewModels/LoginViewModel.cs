@@ -31,19 +31,19 @@ namespace ChargeShare.ViewModels
 			}
 
 			Console.WriteLine("Going to log in user");
-			LoggedinUser = new User();
+			App.LoggedinUser = new User();
 			User loginUser = await userService.UserLogin(Email);
 			if(loginUser == null)
 			{
 				await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
 				return;
 			}
-			LoggedinUser = loginUser;
+			App.LoggedinUser = loginUser;
 			Console.WriteLine("LoggedinUserSet");
-			Console.WriteLine("Email: " + LoggedinUser.Email);
+			Console.WriteLine("Email: " + App.LoggedinUser.Email);
 
 			//TODO encrypt wachtwoord
-			if (Password == LoggedinUser.Password)
+			if (Password == App.LoggedinUser.Password)
 			{
 				await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 			}
